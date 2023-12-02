@@ -1,0 +1,53 @@
+import videosData from "../../data/videos.json";
+import videoDetails from "../../data/video-details.json";
+import "./nextvideo.scss";
+import "../../styles/global.scss";
+import React from "react";
+
+const NextVideo = ({
+  currentVideoId,
+  currentDetailsId,
+  videoHandleClick,
+  detailsHandleClick,
+}) => {
+  const filteredVideos = videosData.filter(
+    (video) => video.id !== currentVideoId
+  );
+
+  return (
+    <div>
+      {filteredVideos.map(function (data) {
+        return (
+          <button
+            key={data.id}
+            onClick={() => {
+              videoHandleClick(data);
+              const detailsArr = videoDetails.findIndex(
+                (details) => details.id === data.id
+              );
+              if (detailsArr !== -1) {
+                detailsHandleClick(videoDetails[detailsArr]);
+              }
+            }}
+          >
+            <div className="nextvideo__container">
+              <div className="nextvideo__img--container">
+                <img src={data.image} alt="video thumbnail" />
+              </div>
+              <div className="nextvideo__info__container">
+                <div>
+                  <p className="info__container--title">{data.title}</p>
+                </div>
+                <div>
+                  <p className="info__container--channel">{data.channel}</p>
+                </div>
+              </div>
+            </div>
+          </button>
+        );
+      })}
+    </div>
+  );
+};
+
+export default NextVideo;

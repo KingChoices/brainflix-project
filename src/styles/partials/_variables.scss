@@ -1,0 +1,297 @@
+//Variables 
+$brainflix-black: #323232;
+$brainflix-blue: #0095ff;
+$silver: #afafaf;
+$white: #ffffff;
+$brainflix-dark-black: #000000;
+$brainflix-dark-blue: #0065ad;
+$mercury: #e1e1e1;
+$alabaster: #fafafa;
+
+//Screen Sizes
+$mobile-px: 767px;
+$tablet-min-px: 768px;
+$tablet-max-px: 1279px;
+$desktop-px: 1280px;
+
+//Font Face
+@font-face {
+    font-family: "AvenirNext";
+    src: url("../../assets/fonts/AvenirNextLTPro.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "AvenirNext";
+    src: url("../../assets/fonts/AvenirNextLTProBold.ttf") format("truetype");
+    font-weight: 700; 
+}
+
+//Text Styles
+@mixin pageHeader {
+    font-size: 33px;
+    line-height: 44px;
+    font-weight: 700;
+
+    @media only screen and (max-width: $mobile-px) {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 700;
+    }
+}
+
+@mixin sectionHeader {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+
+    @media only screen and (max-width: $mobile-px) {
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 700;
+    }
+}
+
+@mixin subHeader {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 700;
+
+    @media only screen and (max-width: $mobile-px) {
+        font-size: 13px;
+        line-height: 18px;
+        font-weight: 700;
+    }
+}
+
+@mixin bodyCopy {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+
+    @media only screen and (max-width: $mobile-px) {
+        font-size: 13px;
+        line-height: 18px;
+        font-weight: 400;
+    }
+}
+
+@mixin buttonText {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+
+    @media only screen and (max-width: $mobile-px) {
+        font-size: 10px;
+        line-height: 20px;
+        font-weight: 700;
+    }
+}
+
+@mixin labelText {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+
+    @media only screen and (max-width: $mobile-px) {
+        font-size: 10px;
+        line-height: 20px;
+        font-weight: 700;
+    }
+}
+
+//Components Padding{
+@mixin paddingBeforeHeadline {
+    padding-top: 36px;
+
+    @media only screen and (max-width: 767px) {
+        padding-top: 24px;
+    }
+}
+
+@mixin paddingAfterHeadline {
+    padding-top: 24px;
+
+    @media only screen and (max-width: 767px) {
+        padding-top: 16px;
+    }
+}
+
+@mixin paddingBeforeHeadline {
+    padding-top: 36px;
+
+    @media only screen and (max-width: 767px) {
+        padding-top: 24px;
+    }
+}
+
+@mixin paddingBetweenComponents {
+    padding-top: 24px;
+
+    @media only screen and (max-width: 767px) {
+        padding-top: 16px;
+    }
+}
+
+//Specific Spacing Padding
+
+@mixin topPadding {
+    padding-top: 36px;
+    
+    @media only screen and (max-width: 767px) {
+        padding-top: 16px;
+    }
+}
+
+@mixin rightPadding {
+    padding-right: 36px;
+    
+    @media only screen and (max-width: 767px) {
+        padding-right: 16px;
+    }
+}
+
+@mixin bottomPadding {
+    padding-bottom: 36px;
+    
+    @media only screen and (max-width: 767px) {
+        padding-bottom: 16px;
+    }
+}
+
+@mixin leftPadding {
+    padding-left: 36px;
+    
+    @media only screen and (max-width: 767px) {
+        padding-left: 16px;
+    }
+}
+
+//Specific Spacing Margins
+@mixin topMargin {
+    margin-top: 36px;
+    
+    @media only screen and (max-width: 767px) {
+        margin-top: 16px;
+    }
+}
+
+@mixin rightMargin {
+    margin-right: 36px;
+    
+    @media only screen and (max-width: 767px) {
+        margin-right: 16px;
+    }
+}
+
+@mixin bottomMargin {
+    margin-bottom: 36px;
+    
+    @media only screen and (max-width: 767px) {
+        margin-bottom: 16px;
+    }
+}
+
+@mixin leftMargin {
+    margin-left: 36px;
+    
+    @media only screen and (max-width: 767px) {
+        margin-left: 16px;
+    }
+}
+
+//Logo
+@mixin logo {
+    min-height: 25px;
+    min-width: 120px;
+}
+
+//Button Styles
+@mixin buttonHeight {
+    height: 40px;
+}
+
+@mixin buttonWidth {
+    min-width: 150px;
+    padding: min(32px);
+}
+
+@mixin buttonRadius {
+    border-radius: 4px;
+}
+
+@mixin buttonIcons {
+    fill: none;
+}
+
+//Video Player Styles
+//Icons
+@mixin videoIcons {
+    opacity: 50%;
+    color: $brainflix-dark-black;
+}
+
+//Form Field Styles
+@mixin formHeight {
+    min-height: 40px;
+
+    @media only screen and (max-width: $mobile-px) {
+        min-height: 36px;
+    }
+}
+
+@mixin formWidth {
+    min-width: 240px;
+    max-width: 100%;
+}
+
+@mixin formRadius {
+    border-radius: 4px;
+}
+
+@mixin formPadding {
+    padding: 16px;
+
+    @media only screen and (max-width: $mobile-px) {
+        padding: 12px;
+    }
+}
+
+@mixin formLabels {
+    padding: 4px;
+}
+
+@mixin formBorder {
+    border: 1px solid $mercury;
+
+    :active {
+        border: 2px solid $brainflix-blue;
+    }
+}
+
+//Divider Styles
+@mixin divider {
+    fill: $mercury;
+    stroke: 1px;
+}
+
+//Images Styles
+@mixin imageRadius {
+    border-radius: 4px;
+    background-color: $mercury;
+}
+
+//Avatar Styles
+@mixin avatarRadius {
+    border-radius: 50%;
+}
+
+@mixin avatarSize {
+    max-width: 40px;
+    max-height: 40px;
+
+    @media only screen and (max-width: $mobile-px) {
+        max-width: 36px;
+        max-height: 36px;
+    }
+}
