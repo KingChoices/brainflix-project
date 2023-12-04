@@ -1,0 +1,67 @@
+@import "../../styles/partials/variables";
+.searchbar__container {
+    width: 100%;
+    display: flex;
+}
+
+.searchbar__container--grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.searchbar__container--one {
+    display: flex;
+    align-items: center;
+}
+
+.searchbar__container--two {
+    display: flex;
+    justify-content: left;
+    align-items: center
+}
+
+.searchbar__container--logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    @include horiComponentsPadding;
+}
+
+.searchbar__container--logo img{
+    @include logo;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.searchbar__container--input input {
+    @include formRadius;
+    @include formBorder;
+    @include formHeight;
+    @include formRadius;
+    @include formWidth;
+    @include formPadding;
+    @include horiComponentsMargin;
+}
+
+.searchbar__container--button button {
+    @include buttonHeight;
+    @include buttonRadius;
+    @include buttonText;
+    @include buttonWidth;
+    @include buttonPadding;
+    @include horiComponentsMargin;
+    background-color: $brainflix-blue;
+    color: $white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.searchbar__container--avatar img {
+    @include avatarSize;
+    @include avatarRadius;
+    @include leftMargin;
+}

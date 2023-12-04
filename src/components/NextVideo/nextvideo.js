@@ -3,10 +3,13 @@ import videoDetails from "../../data/video-details.json";
 import "./nextvideo.scss";
 import "../../styles/global.scss";
 import React from "react";
+import Comments from "../Comments/comments";
 
 const NextVideo = ({
   currentVideoId,
   currentDetailsId,
+  currentCommentsId,
+  commentsHandleClick,
   videoHandleClick,
   detailsHandleClick,
 }) => {
@@ -16,17 +19,32 @@ const NextVideo = ({
 
   return (
     <div>
+      <h3 className="nextvideos__section--title">NEXT VIDEOS</h3>
       {filteredVideos.map(function (data) {
         return (
           <button
+            className="nextvideo__card"
             key={data.id}
             onClick={() => {
               videoHandleClick(data);
+
               const detailsArr = videoDetails.findIndex(
                 (details) => details.id === data.id
               );
+              //
               if (detailsArr !== -1) {
                 detailsHandleClick(videoDetails[detailsArr]);
+                const commentArr = videoDetails[detailsArr].comments;
+                console.log(commentArr);
+                commentsHandleClick(
+                  commentArr.map((currentComments) => (
+                    <Comments
+                      author={currentComments.name}
+                      timestamp={currentComments.timestamp}
+                      comment={currentComments.comment}
+                    />
+                  ))
+                );
               }
             }}
           >

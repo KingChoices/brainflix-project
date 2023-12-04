@@ -5,13 +5,18 @@ import video from "./data/videos.json";
 import videoDetails from "./data/video-details.json";
 import CurrentVideo from "./components/CurrentVideo/currentvideo.js";
 import CurrentDetails from "./components/CurrentDetails/currentdetails.js";
+import Comments from "./components/Comments/comments.js";
+import "./styles/global.scss";
+import "./styles/styles.scss";
+import AddComment from "./components/AddComment/addcomment.js";
 
 function App() {
   const [currentVideo, setCurrentVideo] = useState(video[0]);
   const [currentDetails, setCurrentDetails] = useState(videoDetails[0]);
   const [currentComments, setCurrentComments] = useState(
-    videoDetails[0].comments[0]
+    currentDetails.comments
   );
+  //console.log(videoDetails);
 
   const videoHandleClick = (clickedvideo) => {
     setCurrentVideo(clickedvideo);
@@ -19,6 +24,10 @@ function App() {
 
   const detailsHandleClick = (clickeddetails) => {
     setCurrentDetails(clickeddetails);
+  };
+
+  const commentsHandleClick = (clickedcomments) => {
+    setCurrentComments(clickedcomments);
   };
 
   return (
@@ -46,15 +55,28 @@ function App() {
                 description={currentDetails.description}
               />
             </div>
-            <div className="addcomment__container"></div>
-            <div className="comments__container"></div>
+            <div className="addcomment__container">
+              <AddComment />
+            </div>
+            <div className="comments__container">
+              {currentComments.map((currentComments) => (
+                <Comments
+                  key={currentComments.id}
+                  author={currentComments.name}
+                  timestamp={currentComments.timestamp}
+                  comment={currentComments.comment}
+                />
+              ))}
+            </div>
           </div>
           <div className="nextvideos__container">
             <NextVideo
               currentVideoId={currentVideo.id}
               currentDetailsId={currentDetails.id}
+              currentCommentsId={currentComments.id}
               videoHandleClick={videoHandleClick}
               detailsHandleClick={detailsHandleClick}
+              commentsHandleClick={commentsHandleClick}
             />
           </div>
         </div>

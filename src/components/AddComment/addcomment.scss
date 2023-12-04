@@ -1,0 +1,76 @@
+@import "../../styles/partials/variables";
+
+h3 {
+    @include sectionHeader;
+
+}
+
+.addcomment__container {
+    display: flex;
+    align-items: center;
+    @include horiComponentsPadding;
+} 
+
+.addcomment__container--extra {
+    display: flex;
+}
+
+.addcomment__container--avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addcomment__container--avatar img {
+    @include avatarSize;
+    @include avatarRadius;
+    @include rightMargin;
+}
+
+.addcomment__container--commenttext {
+    display: block;
+    @include rightPadding;
+
+    label {
+        color: $mercury;
+    }
+
+    textarea {
+        resize: none;
+        @include formWidth;
+        @include formRadius;
+        @include formBorder;
+        @include formHeight;
+        @include formPadding;
+        width: 520px;
+        @include bottomMargin;
+    }
+}
+
+.addcomment__container--commentbtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include rightPadding;
+
+    img {
+        background-color: $white;
+    }
+}
+
+.addcomment__container--commentbtn input {
+    @include buttonHeight;
+    @include buttonWidth;
+    @include buttonRadius;
+    @include buttonPadding;
+    @include buttonText;
+   
+    color: $white;
+    border: none;
+    background-color: $brainflix-blue;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    
+}
+

@@ -1,0 +1,19 @@
+@import "../../styles/partials/variables";
+
+.comments__container {
+    border-top: 1px solid $mercury;
+    @include leftPadding;
+    @include paddingAfterHeadline;
+}
+
+.comments__container--avatar {
+    display:  flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comments__container--avatar div {
+    @include avatarRadius;
+    @include avatarSize;
+    background-color: $mercury;
+}

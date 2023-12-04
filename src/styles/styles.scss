@@ -1,0 +1,14 @@
+@import "../styles/partials/variables";
+
+.layout__container {
+    display: grid;
+    grid-template-columns: 75% 25%;
+
+    @media only screen and (max-width:$mobile-px) {
+        display: block;
+    }
+}
+
+.nextvideos__container {
+    border-left: 1px solid $mercury;
+}

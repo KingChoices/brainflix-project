@@ -1,0 +1,43 @@
+@import "../../styles/partials/variables";
+
+.details__container {
+    @include horiComponentsPadding;
+}
+
+.details__container--extras {
+    display: flex;
+    justify-content: space-between;
+}
+
+.details__container--info-one {
+    display: flex;
+    justify-content: left;
+    float: left;
+    p {
+        @include leftPadding;
+    }
+}
+
+.details__container--info-two {
+    display: flex;
+    justify-content: right;
+
+    p {
+        @include rightMargin;
+        float: right;
+
+        span {
+            padding-right: 8px;
+        }
+    }
+}
+
+.details__container--title {
+    @include horiComponentsPadding;
+    @include pageHeader;
+}
+
+.details__container--desc p{
+    @include bodyCopy;
+    @include leftPadding;
+}

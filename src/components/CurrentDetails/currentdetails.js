@@ -1,4 +1,7 @@
 import React from "react";
+import "./currentdetails.scss";
+import viewsLogo from "../../assets/images/icons/views.svg";
+import likesLogo from "../../assets/images/icons/likes.svg";
 
 const CurrentDetails = (props) => {
   return (
@@ -8,13 +11,23 @@ const CurrentDetails = (props) => {
           <h3>{props.title}</h3>
         </div>
         <div className="details__container--extras">
-          <div>
+          <div className="details__container--info-one">
             <p>{props.channel}</p>
             <p>{props.timestamp}</p>
           </div>
-          <div>
-            <p>{props.views}</p>
-            <p>{props.likes}</p>
+          <div className="details__container--info-two">
+            <p>
+              <span>
+                <img src={viewsLogo} alt="views icon" />
+              </span>
+              {props.views}
+            </p>
+            <p>
+              <span>
+                <img src={likesLogo} alt="likes icon" />
+              </span>
+              {props.likes}
+            </p>
           </div>
         </div>
         <div className="details__container--desc">

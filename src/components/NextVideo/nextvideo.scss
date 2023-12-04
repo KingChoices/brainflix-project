@@ -4,7 +4,25 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100px;
-    @include paddingBetweenComponents;
+
+    @include leftMargin;
+}
+
+.nextvideo__card {
+    border: none;
+    @include bottomMargin;
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: $white;
+    
+}
+
+.nextvideos__section--title {
+
+        @include sectionHeader;
+        color: $mercury;
+        @include leftPadding;
+    
 }
 
 .nextvideo__info--container {
