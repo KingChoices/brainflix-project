@@ -28,7 +28,7 @@ const AddComment = () => {
             type="submit"
             id="submit"
             value="COMMENT"
-            class="comment__form--submit"
+            className="comment__form--submit"
           />
         </div>
       </div>

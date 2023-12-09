@@ -59,12 +59,12 @@ function App() {
               <AddComment />
             </div>
             <div className="comments__container">
-              {currentComments.map((currentComments) => (
+              {currentComments.map((comment) => (
                 <Comments
-                  key={currentComments.id}
-                  author={currentComments.name}
-                  timestamp={currentComments.timestamp}
-                  comment={currentComments.comment}
+                  key={comment.id}
+                  name={comment.name}
+                  timestamp={comment.timestamp}
+                  comment={comment.comment}
                 />
               ))}
             </div>

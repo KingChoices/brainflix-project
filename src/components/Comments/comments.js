@@ -12,7 +12,7 @@ const Comments = (props) => {
         <div className="comments__container--comment">
           <div>
             <div className="comments__container--comment-author">
-              <p>{props.author}</p>
+              <p>{props.name}</p>
             </div>
             <div className="comments__container--comment-timestamp">
               <p>{props.timestamp}</p>

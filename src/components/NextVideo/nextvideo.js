@@ -37,13 +37,12 @@ const NextVideo = ({
                 const commentArr = videoDetails[detailsArr].comments;
                 console.log(commentArr);
                 commentsHandleClick(
-                  commentArr.map((currentComments) => (
-                    <Comments
-                      author={currentComments.name}
-                      timestamp={currentComments.timestamp}
-                      comment={currentComments.comment}
-                    />
-                  ))
+                  commentArr.map((comment) => ({
+                    key: comment.id,
+                    name: comment.name,
+                    timestamp: comment.timestamp,
+                    comment: comment.comment,
+                  }))
                 );
               }
             }}
