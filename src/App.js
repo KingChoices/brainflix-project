@@ -16,20 +16,17 @@ function App() {
   const [currentComments, setCurrentComments] = useState(
     currentDetails.comments
   );
-  //console.log(videoDetails);
 
   const videoHandleClick = (clickedvideo) => {
     setCurrentVideo(clickedvideo);
+    console.log(clickedvideo);
   };
 
   const detailsHandleClick = (clickeddetails) => {
     setCurrentDetails(clickeddetails);
+    setCurrentComments(clickeddetails.comments);
+    console.log(clickeddetails);
   };
-
-  const commentsHandleClick = (clickedcomments) => {
-    setCurrentComments(clickedcomments);
-  };
-
   return (
     <>
       <header className="App-header">
@@ -72,11 +69,8 @@ function App() {
           <div className="nextvideos__container">
             <NextVideo
               currentVideoId={currentVideo.id}
-              currentDetailsId={currentDetails.id}
-              currentCommentsId={currentComments.id}
               videoHandleClick={videoHandleClick}
               detailsHandleClick={detailsHandleClick}
-              commentsHandleClick={commentsHandleClick}
             />
           </div>
         </div>

@@ -3,13 +3,9 @@ import videoDetails from "../../data/video-details.json";
 import "./nextvideo.scss";
 import "../../styles/global.scss";
 import React from "react";
-import Comments from "../Comments/comments";
 
 const NextVideo = ({
   currentVideoId,
-  currentDetailsId,
-  currentCommentsId,
-  commentsHandleClick,
   videoHandleClick,
   detailsHandleClick,
 }) => {
@@ -36,14 +32,6 @@ const NextVideo = ({
                 detailsHandleClick(videoDetails[detailsArr]);
                 const commentArr = videoDetails[detailsArr].comments;
                 console.log(commentArr);
-                commentsHandleClick(
-                  commentArr.map((comment) => ({
-                    key: comment.id,
-                    name: comment.name,
-                    timestamp: comment.timestamp,
-                    comment: comment.comment,
-                  }))
-                );
               }
             }}
           >
