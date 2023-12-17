@@ -1,17 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NextVideo from "./components/NextVideo/nextvideo.js";
 import SearchBar from "./components/SearchBar/searchbar.js";
-import video from "./data/videos.json";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import videoDetails from "./data/video-details.json";
-import CurrentVideo from "./components/CurrentVideo/currentvideo.js";
-import CurrentDetails from "./components/CurrentDetails/currentdetails.js";
-import Comments from "./components/Comments/comments.js";
 import "./styles/global.scss";
 import "./styles/styles.scss";
-import AddComment from "./components/AddComment/addcomment.js";
+import axios from "axios";
+import Home from "./pages/Home/Home.js";
+import VideoPlayerPage from "./pages/VideoPlayer/Videoplayer.js";
 
 function App() {
-  const [currentVideo, setCurrentVideo] = useState(video[0]);
+  const [responseData, setResponseData] = useState([]);
+  const [currentVideo, setCurrentVideo] = useState(
+    responseData.length > 0 ? responseData : "loading"
+  );
   const [currentDetails, setCurrentDetails] = useState(videoDetails[0]);
   const [currentComments, setCurrentComments] = useState(
     currentDetails.comments
@@ -27,55 +29,53 @@ function App() {
     setCurrentComments(clickeddetails.comments);
     console.log(clickeddetails);
   };
+
+  const key = "c581c5a1-6ba0-4ce7-afa9-45af222c2107";
+
+  useEffect(() => {
+    axios
+      .get(`https://project-2-api.herokuapp.com/videos?api_key=${key}`)
+      .then((response) => {
+        setResponseData(response.data);
+        setCurrentVideo(response.data[0]);
+        console.log(response.data);
+      });
+  }, []);
+  console.log(responseData.length > 0 ? responseData : "Loading...");
   return (
-    <>
-      <header className="App-header">
-        <SearchBar />
-      </header>
-      <section>
-        <div className="currentvideo__container">
-          <CurrentVideo
-            image={currentVideo.image}
-            title={currentVideo.title}
-            channel={currentVideo.channel}
-          />
-        </div>
-        <div className="layout__container">
-          <div className="videodetails__container">
-            <div className="currentvideo__container--details">
-              <CurrentDetails
-                title={currentDetails.title}
-                channel={currentDetails.channel}
-                timestamp={currentDetails.timestamp}
-                views={currentDetails.views}
-                likes={currentDetails.likes}
-                description={currentDetails.description}
+    <Router>
+      <>
+        <header className="App-header">
+          <SearchBar />
+        </header>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                currentVideo={currentVideo}
+                currentDetails={currentDetails}
+                currentComments={currentComments}
+                videoHandleClick={videoHandleClick}
+                detailsHandleClick={detailsHandleClick}
               />
-            </div>
-            <div className="addcomment__container">
-              <AddComment />
-            </div>
-            <div className="comments__container">
-              {currentComments.map((comment) => (
-                <Comments
-                  key={comment.id}
-                  name={comment.name}
-                  timestamp={comment.timestamp}
-                  comment={comment.comment}
-                />
-              ))}
-            </div>
-          </div>
-          <div className="nextvideos__container">
-            <NextVideo
-              currentVideoId={currentVideo.id}
-              videoHandleClick={videoHandleClick}
-              detailsHandleClick={detailsHandleClick}
-            />
-          </div>
-        </div>
-      </section>
-    </>
+            }
+          />
+          <Route
+            path="/videos/:videoId"
+            element={
+              <VideoPlayerPage
+                currentVideo={currentVideo}
+                currentDetails={currentDetails}
+                currentComments={currentComments}
+                videoHandleClick={videoHandleClick}
+                detailsHandleClick={detailsHandleClick}
+              />
+            }
+          />
+        </Routes>
+      </>
+    </Router>
   );
 }
 

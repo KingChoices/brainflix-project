@@ -3,6 +3,7 @@ import videoDetails from "../../data/video-details.json";
 import "./nextvideo.scss";
 import "../../styles/global.scss";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NextVideo = ({
   currentVideoId,
@@ -18,7 +19,8 @@ const NextVideo = ({
       <h3 className="nextvideos__section--title">NEXT VIDEOS</h3>
       {filteredVideos.map(function (data) {
         return (
-          <button
+          <Link
+            to={`/videos/${data.id}`}
             className="nextvideo__card"
             key={data.id}
             onClick={() => {
@@ -27,7 +29,6 @@ const NextVideo = ({
               const detailsArr = videoDetails.findIndex(
                 (details) => details.id === data.id
               );
-              //
               if (detailsArr !== -1) {
                 detailsHandleClick(videoDetails[detailsArr]);
                 const commentArr = videoDetails[detailsArr].comments;
@@ -48,7 +49,7 @@ const NextVideo = ({
                 </div>
               </div>
             </div>
-          </button>
+          </Link>
         );
       })}
     </div>

@@ -2,11 +2,19 @@
 .searchbar__container {
     width: 100%;
     display: flex;
+    justify-content: space-evenly;
+
+    @media only screen and (max-width: $mobile-px) {
+        display: block;
+    }
 }
 
 .searchbar__container--grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    @media only screen and (max-width: $mobile-px) {
+        display: block;
+    }
 }
 
 .searchbar__container--one {
@@ -17,7 +25,29 @@
 .searchbar__container--two {
     display: flex;
     justify-content: left;
-    align-items: center
+    align-items: center;
+
+    @media only screen and (max-width: $mobile-px) {
+        display: block;
+    }
+}
+
+.searchbar__container--mobile--layout {
+    @media only screen and (max-width: $mobile-px) {
+        display: grid;
+        grid-template-columns: 85% 15%;
+        
+        div input {
+            width: 100%;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-items: center;
+        }
+    }
 }
 
 .searchbar__container--logo {
