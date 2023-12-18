@@ -21,7 +21,7 @@ const NextVideo = ({
         return (
           <Link
             to={`/videos/${data.id}`}
-            className="nextvideo__card"
+            className="link"
             key={data.id}
             onClick={() => {
               videoHandleClick(data);
@@ -36,16 +36,18 @@ const NextVideo = ({
               }
             }}
           >
-            <div className="nextvideo__container">
-              <div className="nextvideo__img--container">
-                <img src={data.image} alt="video thumbnail" />
-              </div>
-              <div className="nextvideo__info__container">
-                <div>
-                  <p className="info__container--title">{data.title}</p>
+            <div className="nextvideo__card">
+              <div className="nextvideo__container">
+                <div className="nextvideo__img--container">
+                  <img src={data.image} alt="video thumbnail" />
                 </div>
-                <div>
-                  <p className="info__container--channel">{data.channel}</p>
+                <div className="nextvideo__info__container">
+                  <div>
+                    <p className="info__container--title">{data.title}</p>
+                  </div>
+                  <div>
+                    <p className="info__container--channel">{data.channel}</p>
+                  </div>
                 </div>
               </div>
             </div>

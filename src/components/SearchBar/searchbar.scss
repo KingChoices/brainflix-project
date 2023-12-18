@@ -20,12 +20,19 @@
 .searchbar__container--one {
     display: flex;
     align-items: center;
+    @include paddingBetweenComponents;
+    @media only screen and (max-width: $mobile-px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .searchbar__container--two {
     display: flex;
     justify-content: left;
     align-items: center;
+    @include paddingBetweenComponents;
 
     @media only screen and (max-width: $mobile-px) {
         display: block;
@@ -74,7 +81,11 @@
     @include horiComponentsMargin;
 }
 
-.searchbar__container--button button {
+.searchbar__container--button {
+    @include paddingBeforeHeadline;
+}
+
+.searchbar__container--button button{
     @include buttonHeight;
     @include buttonRadius;
     @include buttonText;
@@ -87,6 +98,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @media only screen and (max-width: $mobile-px) {
+        width: 90%;
+    }
     
 }
 

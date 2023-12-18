@@ -5,7 +5,7 @@ import likesLogo from "../../assets/images/icons/likes.svg";
 
 const CurrentDetails = (props) => {
   return (
-    <div>
+    <>
       <div className="details__container">
         <div className="details__container--title">
           <h3>{props.title}</h3>
@@ -34,7 +34,7 @@ const CurrentDetails = (props) => {
           <p>{props.description}</p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
