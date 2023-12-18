@@ -8,7 +8,7 @@ import "./styles/styles.scss";
 import axios from "axios";
 import Home from "./pages/Home/Home.js";
 import VideoPlayerPage from "./pages/VideoPlayer/Videoplayer.js";
-import Upload from "./pages/Upload/Upload.js";
+import Upload from "./pages/Upload/upload.js";
 
 function App() {
   const [responseData, setResponseData] = useState([]);

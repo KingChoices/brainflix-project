@@ -81,6 +81,24 @@
     @include horiComponentsMargin;
 }
 
+.upload__button {
+    @include buttonHeight;
+    @include buttonRadius;
+    @include buttonText;
+    @include buttonWidth;
+    @include buttonPadding;
+    @include horiComponentsMargin;
+    background-color: $brainflix-blue;
+    color: $white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (max-width: $mobile-px) {
+        width: 90%;
+    }
+}
+
 .searchbar__container--button {
     @include paddingBeforeHeadline;
 }

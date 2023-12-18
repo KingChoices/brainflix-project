@@ -4,7 +4,7 @@ import logo from "../../assets/images/logo/BrainFlix-logo.svg";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 import "./searchbar.scss";
 import searchlogo from "../../assets/images/icons/search.svg";
-import Upload from "../../pages/Upload/Upload.js";
+import Upload from "../../pages/Upload/upload.js";
 
 const SearchBar = () => {
   return (
@@ -12,7 +12,9 @@ const SearchBar = () => {
       <div className="searchbar__container--grid">
         <div className="searchbar__container--one">
           <div className="searchbar__container--logo">
-            <img src={logo} alt="searchbar logo" />
+            <Link to="/">
+              <img src={logo} alt="searchbar logo" />
+            </Link>
           </div>
         </div>
         <div className="searchbar__container--two">
@@ -26,7 +28,7 @@ const SearchBar = () => {
           </div>
 
           <div className="searchbar__container--button">
-            <Link path="/upload" element={<Upload />}>
+            <Link to="/upload" className="link">
               <button>UPLOAD</button>
             </Link>
           </div>
