@@ -1,8 +1,10 @@
 import React from "react";
+import { Link, Routes } from "react-router-dom";
 import logo from "../../assets/images/logo/BrainFlix-logo.svg";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 import "./searchbar.scss";
 import searchlogo from "../../assets/images/icons/search.svg";
+import Upload from "../../pages/Upload/Upload.js";
 
 const SearchBar = () => {
   return (
@@ -24,7 +26,9 @@ const SearchBar = () => {
           </div>
 
           <div className="searchbar__container--button">
-            <button>UPLOAD</button>
+            <Link path="/upload" element={<Upload />}>
+              <button>UPLOAD</button>
+            </Link>
           </div>
           <div className="searchbar__container--avatar mobile--hidden">
             <img src={avatar} alt="searchbar avatar" />

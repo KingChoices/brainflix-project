@@ -1,0 +1,120 @@
+@import "../../styles/partials/variables";
+.upload__container {
+    border-top: 1px solid $mercury;
+    @include topMargin;
+    @include paddingAfterHeadline;
+}
+
+.upload__section--title {
+    color: $brainflix-dark-black;
+    @include pageHeader;
+    @include leftMargin;
+}
+
+.upload__container--upload p{
+    @include sectionHeader;
+    @include leftPadding;
+    color: $mercury;
+}
+
+.upload__container--img {
+    width: 100%;
+    display: flex;
+    @include bottomMargin;
+
+    img {
+        width: inherit;
+        height: auto;
+        border-radius: 4px;
+        @include leftPadding;
+        @include rightPadding;
+        
+    }
+}
+
+.button__container--publish {
+    @include leftMargin;
+    @include rightMargin;
+}
+
+.button__container--publish button{
+    border: none;
+    @include buttonHeight;
+    @include buttonRadius;
+    @include buttonText;
+    @include buttonWidth;
+    @include buttonPadding;
+    background-color: $brainflix-blue;
+    color: $white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button__container--cancel {
+    @include leftMargin;
+    @include rightMargin;
+}
+
+.button__container--cancel button{
+    border: none;
+    background-color: transparent;
+    @include buttonHeight;
+    @include buttonRadius;
+    @include buttonText;
+    @include buttonWidth;
+    @include buttonPadding;
+    color: $brainflix-blue;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.upload__container--title--label label{
+    color: $mercury;
+    @include subHeader;
+    @include leftMargin;
+}
+
+.upload__container--title--text {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.upload__container--title--text textarea {
+    resize: none;
+    @include formBorder;
+    @include formPadding;
+    width: inherit;
+    @include formRadius;
+    @include bottomMargin;
+    @include leftMargin;
+    @include rightMargin;
+}
+
+.upload__container--desc--label label{
+    color: $mercury;
+    @include subHeader;
+    @include leftMargin;
+}
+.upload__container--desc--text {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.upload__container--desc--text textarea {
+    resize: none;
+    @include formBorder;
+    @include formHeight;
+    @include formPadding;
+    width:inherit;
+    @include formRadius;
+    @include bottomMargin;
+    @include leftMargin;
+    @include rightMargin;
+}
