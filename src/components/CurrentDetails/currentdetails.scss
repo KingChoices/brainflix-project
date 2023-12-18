@@ -7,6 +7,11 @@
 .details__container--extras {
     display: flex;
     justify-content: space-between;
+    
+    @media only screen and (max-width: $mobile-px) {
+        justify-content:flex-start;
+        flex-wrap: wrap;
+    }
 }
 
 .details__container--info-one {
@@ -15,6 +20,10 @@
     float: left;
     p {
         @include leftPadding;
+    }
+
+    @media only screen and (max-width: $mobile-px) {
+        display: block;
     }
 }
 
@@ -29,6 +38,11 @@
         span {
             padding-right: 8px;
         }
+    }
+
+    @media only screen and (max-width: $mobile-px) {
+        display: block;
+        @include leftMargin;
     }
 }
 

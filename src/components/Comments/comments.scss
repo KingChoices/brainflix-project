@@ -2,18 +2,43 @@
 
 .comments__container {
     border-top: 1px solid $mercury;
-    @include leftPadding;
-    @include paddingAfterHeadline;
+    width: 100%;
+    
+}
+
+.comments__container--layout {
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+
+.comments__container--comment {
+    @include leftMargin;
+}
+
+.comments__container--comment--grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.comments__container--comment-timestamp {
+    display: flex;
+    justify-content: right;
+
+    p {
+        color: $mercury;
+    }
 }
 
 .comments__container--avatar {
-    display:  flex;
-    align-items: center;
+    display: flex;
     justify-content: center;
+    @include topPadding;
 }
 
 .comments__container--avatar div {
     @include avatarRadius;
     @include avatarSize;
+    width: 50px;
     background-color: $mercury;
+    background-image: none;
 }

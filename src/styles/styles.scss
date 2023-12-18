@@ -11,4 +11,7 @@
 
 .nextvideos__container {
     border-left: 1px solid $mercury;
+    @media only screen and (max-width: $mobile-px) {
+        border: none;
+    }
 }

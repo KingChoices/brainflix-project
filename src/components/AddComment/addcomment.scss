@@ -9,6 +9,7 @@ h3 {
     display: flex;
     align-items: center;
     @include horiComponentsPadding;
+
 } 
 
 .addcomment__container--extra {
@@ -18,7 +19,7 @@ h3 {
 .addcomment__container--avatar {
     display: flex;
     justify-content: center;
-    align-items: center;
+    
 }
 
 .addcomment__container--avatar img {
@@ -44,6 +45,10 @@ h3 {
         @include formPadding;
         width: 520px;
         @include bottomMargin;
+
+        @media only screen and (max-width: $mobile-px) {
+            width: 96%;
+        }
     }
 }
 
@@ -56,14 +61,17 @@ h3 {
     img {
         background-color: $white;
     }
+
+    
 }
 
-.addcomment__container--commentbtn input {
+.addcomment__container--commentinput input {
     @include buttonHeight;
     @include buttonWidth;
     @include buttonRadius;
     @include buttonPadding;
     @include buttonText;
+    @include bottomMargin;
    
     color: $white;
     border: none;
@@ -71,6 +79,9 @@ h3 {
     text-align: center;
     display: flex;
     align-items: center;
-    
+
+    @media only screen and (max-width: $mobile-px) {
+        width: 100%;
+    }
 }
 

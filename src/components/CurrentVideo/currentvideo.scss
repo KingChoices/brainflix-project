@@ -1,11 +1,14 @@
+@import "../../styles/partials/variables";
+
 .currentvideo__container {
     background-color: black;
     width: 100%;
+    @include topMargin;
 }
 
 .currentvideo__container video{
     display: block;
-    width: 100vw;
+    width: inherit;
     max-width: 177.78vh;
     /* 16/9 = 1.778 */
     height: 56.25vw;

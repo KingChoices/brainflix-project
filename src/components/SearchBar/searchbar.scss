@@ -2,22 +2,59 @@
 .searchbar__container {
     width: 100%;
     display: flex;
+    justify-content: space-evenly;
+
+    @media only screen and (max-width: $mobile-px) {
+        display: block;
+    }
 }
 
 .searchbar__container--grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    @media only screen and (max-width: $mobile-px) {
+        display: block;
+    }
 }
 
 .searchbar__container--one {
     display: flex;
     align-items: center;
+    @include paddingBetweenComponents;
+    @media only screen and (max-width: $mobile-px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .searchbar__container--two {
     display: flex;
     justify-content: left;
-    align-items: center
+    align-items: center;
+    @include paddingBetweenComponents;
+
+    @media only screen and (max-width: $mobile-px) {
+        display: block;
+    }
+}
+
+.searchbar__container--mobile--layout {
+    @media only screen and (max-width: $mobile-px) {
+        display: grid;
+        grid-template-columns: 85% 15%;
+        
+        div input {
+            width: 100%;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-items: center;
+        }
+    }
 }
 
 .searchbar__container--logo {
@@ -44,7 +81,7 @@
     @include horiComponentsMargin;
 }
 
-.searchbar__container--button button {
+.upload__button {
     @include buttonHeight;
     @include buttonRadius;
     @include buttonText;
@@ -57,6 +94,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @media only screen and (max-width: $mobile-px) {
+        width: 90%;
+    }
+}
+
+.searchbar__container--button {
+    @include paddingBeforeHeadline;
+}
+
+.searchbar__container--button button{
+    @include buttonHeight;
+    @include buttonRadius;
+    @include buttonText;
+    @include buttonWidth;
+    @include buttonPadding;
+    @include horiComponentsMargin;
+    background-color: $brainflix-blue;
+    color: $white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (max-width: $mobile-px) {
+        width: 90%;
+    }
     
 }
 

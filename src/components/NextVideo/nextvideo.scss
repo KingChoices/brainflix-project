@@ -2,7 +2,7 @@
 
 .nextvideo__container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 55% 45%;
     height: 100px;
 
     @include leftMargin;
@@ -14,28 +14,38 @@
     display: flex;
     flex-wrap: nowrap;
     background-color: $white;
-    
+    text-decoration: none;
+    color: $mercury;
+
+    a {
+        text-decoration: none;
+    }
+
 }
 
 .nextvideos__section--title {
-
-        @include sectionHeader;
-        color: $mercury;
-        @include leftPadding;
+    @include sectionHeader;
+    color: $mercury;
+    @include leftPadding;
     
 }
 
-.nextvideo__info--container {
+.link {
+    text-decoration: none;
+}
+
+.nextvideo__info__container {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    
-    div {
-        @include paddingBetweenComponents;
-    }
+    @include leftMargin;
+}
+
+.info__container--title {
+    color: $brainflix-dark-black;
+    text-decoration: none;
 }
 
 .nextvideo__img--container {
-    width: 100%;
+    width: 200px;
     height: 100px;
 
     img {

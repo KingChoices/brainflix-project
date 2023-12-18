@@ -1,7 +1,10 @@
 import React from "react";
+import { Link, Routes } from "react-router-dom";
 import logo from "../../assets/images/logo/BrainFlix-logo.svg";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 import "./searchbar.scss";
+import searchlogo from "../../assets/images/icons/search.svg";
+import Upload from "../../pages/Upload/upload.js";
 
 const SearchBar = () => {
   return (
@@ -9,17 +12,27 @@ const SearchBar = () => {
       <div className="searchbar__container--grid">
         <div className="searchbar__container--one">
           <div className="searchbar__container--logo">
-            <img src={logo} alt="searchbar logo" />
+            <Link to="/">
+              <img src={logo} alt="searchbar logo" />
+            </Link>
           </div>
         </div>
         <div className="searchbar__container--two">
-          <div className="searchbar__container--input">
-            <input type="text" name="search" placeholder="Search" />
+          <div className="searchbar__container--mobile--layout">
+            <div className="searchbar__container--input">
+              <input type="text" name="search" placeholder="Search" />
+            </div>
+            <div className="searchbar__container--avatar desktop--hidden">
+              <img src={avatar} alt="searchbar avatar" />
+            </div>
           </div>
+
           <div className="searchbar__container--button">
-            <button>UPLOAD</button>
+            <Link to="/upload" className="link">
+              <button>UPLOAD</button>
+            </Link>
           </div>
-          <div className="searchbar__container--avatar">
+          <div className="searchbar__container--avatar mobile--hidden">
             <img src={avatar} alt="searchbar avatar" />
           </div>
         </div>

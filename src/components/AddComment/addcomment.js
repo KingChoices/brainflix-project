@@ -8,28 +8,27 @@ const AddComment = () => {
     <div>
       <h3>3 Comments</h3>
       <div className="addcomment__container">
+        <div className="addcomment__container--avatar">
+          <img src={avatar} alt="comment avatar" />
+        </div>
         <div className="addcomment__container--extra">
-          <div className="addcomment__container--avatar">
-            <img src={avatar} alt="comment avatar" />
-          </div>
-          <form className="addcomment__container--commenttext">
-            <div>
+          <form>
+            <div className="addcomment__container--commentlabel">
               <label for="addcomment">JOIN THE CONVERSATION</label>
             </div>
+            <div className="addcomment__container--commenttext">
+              <textarea name="addcomment" placeholder="Add a new comment" />
+            </div>
 
-            <textarea name="addcomment" placeholder="Add a new comment" />
+            <div className="addcomment__container--commentinput">
+              <input
+                type="submit"
+                id="submit"
+                value="COMMENT"
+                className="comment__form--submit"
+              />
+            </div>
           </form>
-        </div>
-        <div className="addcomment__container--commentbtn">
-          <span>
-            <img src={commentLogo} alt="comment logo" />
-          </span>
-          <input
-            type="submit"
-            id="submit"
-            value="COMMENT"
-            className="comment__form--submit"
-          />
         </div>
       </div>
     </div>
