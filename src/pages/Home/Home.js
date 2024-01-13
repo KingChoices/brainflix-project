@@ -6,6 +6,7 @@ import NextVideo from "../../components/NextVideo/nextvideo.js";
 import AddComment from "../../components/AddComment/addcomment.js";
 
 const Home = ({
+  responseData,
   currentVideo,
   currentDetails,
   currentComments,
@@ -13,7 +14,7 @@ const Home = ({
   detailsHandleClick,
 }) => {
   return (
-    <>
+    <section>
       <div className="currentvideo__container">
         <CurrentVideo
           image={currentVideo.image}
@@ -52,10 +53,12 @@ const Home = ({
             currentVideoId={currentVideo.id}
             videoHandleClick={videoHandleClick}
             detailsHandleClick={detailsHandleClick}
+            videosData={responseData}
+            videoDetails={currentDetails}
           />
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

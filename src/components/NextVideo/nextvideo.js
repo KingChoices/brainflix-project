@@ -1,5 +1,3 @@
-import videosData from "../../data/videos.json";
-import videoDetails from "../../data/video-details.json";
 import "./nextvideo.scss";
 import "../../styles/global.scss";
 import React from "react";
@@ -9,7 +7,13 @@ const NextVideo = ({
   currentVideoId,
   videoHandleClick,
   detailsHandleClick,
+  videoDetails,
+  videosData,
 }) => {
+  if (!videosData || !videoDetails) {
+    return null; // You can render an alternative UI or just return nothing
+  }
+
   const filteredVideos = videosData.filter(
     (video) => video.id !== currentVideoId
   );

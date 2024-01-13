@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import NextVideo from "./components/NextVideo/nextvideo.js";
 import SearchBar from "./components/SearchBar/searchbar.js";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import videoDetails from "./data/video-details.json";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useParams,
+} from "react-router-dom";
 import "./styles/global.scss";
 import "./styles/styles.scss";
 import axios from "axios";
 import Home from "./pages/Home/Home.js";
-import VideoPlayerPage from "./pages/VideoPlayer/Videoplayer.js";
 import Upload from "./pages/Upload/upload.js";
 
 function App() {
@@ -15,9 +17,12 @@ function App() {
   const [currentVideo, setCurrentVideo] = useState(
     responseData.length > 0 ? responseData : "loading"
   );
-  const [currentDetails, setCurrentDetails] = useState(videoDetails[0]);
+
+  console.log(currentVideo);
+  const [currentDetails, setCurrentDetails] = useState({});
+  console.log(currentDetails);
   const [currentComments, setCurrentComments] = useState(
-    currentDetails.comments
+    currentDetails.comments || []
   );
 
   const videoHandleClick = (clickedvideo) => {
@@ -43,10 +48,39 @@ function App() {
       });
   }, []);
   console.log(responseData.length > 0 ? responseData : "Loading...");
+
+  useEffect(() => {
+    if (currentVideo && currentVideo.id) {
+      axios
+        .get(
+          `https://project-2-api.herokuapp.com/videos/${currentVideo.id}?api_key=${key}`
+        )
+        .then((response) => {
+          setCurrentDetails(response.data);
+          setCurrentComments(response.data.comments || []);
+          console.log(response.data);
+        });
+    }
+  }, [currentVideo]);
+
+  let { videoId } = useParams();
+  console.log(videoId);
+
+  useEffect(() => {
+    console.log("currentDetails:", currentDetails);
+    if (!videoId) {
+      console.log("param is empty");
+    } else {
+      console.log(videoId);
+    }
+  }, [currentDetails, videoId]);
+
+  console.log(currentDetails);
+
   return (
     <Router>
       <>
-        <header className="App-header">
+        <header className="header__section">
           <SearchBar />
         </header>
         <Routes>
@@ -54,6 +88,7 @@ function App() {
             path="/"
             element={
               <Home
+                responseData={responseData}
                 currentVideo={currentVideo}
                 currentDetails={currentDetails}
                 currentComments={currentComments}
@@ -66,7 +101,8 @@ function App() {
           <Route
             path="/videos/:videoId"
             element={
-              <VideoPlayerPage
+              <Home
+                responseData={responseData}
                 currentVideo={currentVideo}
                 currentDetails={currentDetails}
                 currentComments={currentComments}
