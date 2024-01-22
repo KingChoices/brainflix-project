@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CurrentVideo from "../../components/CurrentVideo/currentvideo.js";
 import CurrentDetails from "../../components/CurrentDetails/currentdetails.js";
 import Comments from "../../components/Comments/comments.js";
 import NextVideo from "../../components/NextVideo/nextvideo.js";
 import AddComment from "../../components/AddComment/addcomment.js";
+import { useParams } from "react-router-dom";
 
 const Home = ({
   responseData,
@@ -13,6 +14,16 @@ const Home = ({
   videoHandleClick,
   detailsHandleClick,
 }) => {
+  const { videoId } = useParams();
+
+  useEffect(() => {
+    if (videoId) {
+      console.log(videoId);
+    } else {
+      console.log("No video id found.");
+    }
+  }, [videoId]);
+
   return (
     <section>
       <div className="currentvideo__container">

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const NextVideo = ({
   currentVideoId,
   videoHandleClick,
-  detailsHandleClick,
+  //detailsHandleClick,
   videoDetails,
   videosData,
 }) => {
@@ -30,14 +30,14 @@ const NextVideo = ({
             onClick={() => {
               videoHandleClick(data);
 
-              const detailsArr = videoDetails.findIndex(
-                (details) => details.id === data.id
-              );
-              if (detailsArr !== -1) {
-                detailsHandleClick(videoDetails[detailsArr]);
-                const commentArr = videoDetails[detailsArr].comments;
-                console.log(commentArr);
-              }
+              // const detailsArr = videoDetails.findIndex(
+              //   (details) => details.id === data.id
+              // );
+              // if (detailsArr !== -1) {
+              //   detailsHandleClick(videoDetails[detailsArr]);
+              //   const commentArr = videoDetails[detailsArr].comments;
+              //   console.log(commentArr);
+              // }
             }}
           >
             <div className="nextvideo__card">
