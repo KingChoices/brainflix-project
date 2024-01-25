@@ -1,5 +1,3 @@
-import videosData from "../../data/videos.json";
-import videoDetails from "../../data/video-details.json";
 import "./nextvideo.scss";
 import "../../styles/global.scss";
 import React from "react";
@@ -8,8 +6,14 @@ import { Link } from "react-router-dom";
 const NextVideo = ({
   currentVideoId,
   videoHandleClick,
-  detailsHandleClick,
+  //detailsHandleClick,
+  videoDetails,
+  videosData,
 }) => {
+  if (!videosData || !videoDetails) {
+    return null; // You can render an alternative UI or just return nothing
+  }
+
   const filteredVideos = videosData.filter(
     (video) => video.id !== currentVideoId
   );
@@ -26,14 +30,14 @@ const NextVideo = ({
             onClick={() => {
               videoHandleClick(data);
 
-              const detailsArr = videoDetails.findIndex(
-                (details) => details.id === data.id
-              );
-              if (detailsArr !== -1) {
-                detailsHandleClick(videoDetails[detailsArr]);
-                const commentArr = videoDetails[detailsArr].comments;
-                console.log(commentArr);
-              }
+              // const detailsArr = videoDetails.findIndex(
+              //   (details) => details.id === data.id
+              // );
+              // if (detailsArr !== -1) {
+              //   detailsHandleClick(videoDetails[detailsArr]);
+              //   const commentArr = videoDetails[detailsArr].comments;
+              //   console.log(commentArr);
+              // }
             }}
           >
             <div className="nextvideo__card">

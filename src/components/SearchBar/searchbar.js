@@ -1,10 +1,8 @@
 import React from "react";
-import { Link, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo/BrainFlix-logo.svg";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 import "./searchbar.scss";
-import searchlogo from "../../assets/images/icons/search.svg";
-import Upload from "../../pages/Upload/upload.js";
 
 const SearchBar = () => {
   return (
